@@ -1,0 +1,25 @@
+A = sequence of n numbers (int) <a1, a2, ..., an>
+n = length of A
+x = value (int)
+
+LinearSearch(A, x):
+    for i = 1 to length(A):
+        if A[i] == x:
+            return i
+    return NIL
+
+
+Loop Invariant Proof:
+
+    Loop Invariant: At the start of each iteration of the loop, the element x has not been found in the subarray A[1:i-1].
+
+    Initialization: Before the loop begins, i is initialized to 1. At this point, the subarray A[1:i-1] is empty, and therefore, the loop invariant holds true since x has not been found in an empty subarray.
+
+    Maintenance: Assume the loop invariant holds true at the start of an arbitrary iteration i. This means that x has not been found in the subarray A[1:i-1]. During this iteration, we compare A[i] with x. If A[i] is equal to x, we immediately return i, indicating that x has been found. If A[i] is not equal to x, we continue to the next iteration. In either case, the loop invariant still holds true since x has not been found in A[1:i].
+
+    Termination: The loop terminates in two scenarios: when A[i] equals x and when i reaches the end of the array. In the first scenario, we return i, indicating that x has been found. In the second scenario, i is equal to length(A) + 1, and the loop invariant implies that x has not been found in the entire array A[1:length(A)]. In this case, we return NIL, indicating that x does not appear in A.
+
+    By using the loop invariant to prove the correctness of the algorithm, we can conclude that the linear search algorithm correctly returns the index of x if it is present in the array A, or NIL if x does not appear in A.
+
+
+    
